@@ -1,0 +1,52 @@
+Step 1: Installing the necessary Dependencies
+Make sure you have Python installed on your machine. Additionally, you need to install Flask and SQLAlchemy libraries. Open a terminal or command prompt and run the following command
+
+###  pip install flask flask_sqlalchemy
+
+Step 2: Create a new Python File
+
+Step 3: Set Up the Database
+The code is set to use a SQLite database. To create the database file and necessary tables, you can add the following code snippet after the line db = SQLAlchemy(app) in your app.py file:
+# Create the database tables (run once)
+db.create_all()
+
+Step 4: Run the API Server
+#use the following command
+python app.py
+
+This will start the Flask development server and you should be able to see output similar to the following:
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+
+Step 5: Interacting with the created API
+You can use a tool like cURL or Postman to interact with the API by sending HTTP requests to the defined endpoints. Here are some examples of HTTP requests you can make:
+
+##### To list all the books:
+GET http://localhost:5000/books
+
+##### To get information about a specific book by book id: ( example book id= 1)
+GET http://localhost:5000/books/1
+
+##### To create a new book in the directory:
+POST http://localhost:5000/books
+
+Request body:
+{
+  "title": "New Book",
+  "author": "New Author",
+  "published_date": "2023-07-18"
+}
+
+##### To update an existing book:
+PUT http://localhost:5000/books/2
+
+Request body:
+{
+  "title": "Updated Book Title"
+}
+
+##### To delete a specific book by book id:
+DELETE http://localhost:5000/books/3
+
+### IMPORTANT INFORMATION 
+Remember to adjust the URL and port (5000 in this case) if you're running the Flask server on a different address or port.
+
